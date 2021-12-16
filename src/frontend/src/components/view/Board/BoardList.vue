@@ -2,7 +2,7 @@
   <div>
     <table>
        <tr v-for="item in list" :key="item.seq">
-        <td>{{item.seq}}</td>
+        <router-link :to="`/board/detail/${item.seq}`"><td>{{item.seq}}</td></router-link>
         <td>{{item.title}}</td>
         <td>{{item.content}}</td>
         <td>{{item.writer}}</td>
@@ -13,39 +13,17 @@
 </template>
 
 <script>
-
-/*const testData = [{
-  seq : 1,
-  title : '11',
-  content : '11',
-  writer : 'hong',
-  date : '2021-12-15'
-},{
-  seq : 2,
-  title : '22',
-  content : '22',
-  writer : 'hong',
-  date : '2021-12-15'
-},{
-  seq : 3,
-  title : '33',
-  content : '33',
-  writer : 'hong',
-  date : '2021-12-15'
-},]*/
-
 import axios from "axios";
 
 export default {
   name: "about",
   data(){
     return{
-      // list : testData
       list : []
     }
   },
   methods: {
-    getData : function(){
+    getList : function(){
       axios.get("/api/board")
           .then(response => {
             this.list = response.data;
@@ -57,7 +35,7 @@ export default {
     }
   },
   created(){
-    this.getData();
+    this.getList();
   }
 }
 

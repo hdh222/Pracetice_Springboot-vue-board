@@ -17,4 +17,20 @@ public class BoardServiceImpl implements BoardService{
     public List<Board> getBoard() {
         return boardRepository.getBoard();
     }
+
+    @Override
+    public Board getData(int seq) {
+        return boardRepository.getData(seq);
+    }
+
+    @Override
+    public int setData(Board board) {
+        return boardRepository.setData(board);
+    }
+
+    @Override
+    public int deleteData(int seq) {
+        return boardRepository.deleteData(seq);
+    }
+
 }

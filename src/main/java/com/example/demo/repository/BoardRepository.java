@@ -8,4 +8,7 @@ import java.util.List;
 @Mapper
 public interface BoardRepository {
     List<Board> getBoard();
+    Board getData(int seq);
+    int setData(Board board);
+    int deleteData(int seq);
 }

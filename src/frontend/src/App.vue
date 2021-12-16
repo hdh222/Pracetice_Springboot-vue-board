@@ -2,9 +2,9 @@
   <div id="app">
     <Header />
     <router-link to="/">/</router-link><br>
-    <router-link to="/board">/board</router-link>
+    <router-link to="/board/list">/board</router-link>
     <div class="content" id="content">
-      <router-view></router-view>
+      <router-view :key="$route.fullPath"></router-view>
     </div>
 
   </div>
