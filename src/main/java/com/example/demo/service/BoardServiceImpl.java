@@ -33,4 +33,10 @@ public class BoardServiceImpl implements BoardService{
         return boardRepository.deleteData(seq);
     }
 
+    @Override
+    public void addData(Board board) {
+        System.out.println(board);
+        boardRepository.addData(board);
+    }
+
 }

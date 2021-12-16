@@ -4,7 +4,7 @@
     <router-link to="/">/</router-link><br>
     <router-link to="/board/list">/board</router-link>
     <div class="content" id="content">
-      <router-view :key="$route.fullPath"></router-view>
+      <router-view></router-view>
     </div>
 
   </div>

@@ -11,4 +11,5 @@ public interface BoardRepository {
     Board getData(int seq);
     int setData(Board board);
     int deleteData(int seq);
+    void addData(Board board);
 }

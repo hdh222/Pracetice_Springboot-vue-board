@@ -30,4 +30,21 @@
         WHERE
             seq=#{seq}
     </delete>
+    <insert id="addData" parameterType="Board">
+        INSERT INTO
+            board(
+                  seq,
+                  title,
+                  content,
+                  writer,
+                  board_date
+            )
+        VALUES(
+               nextval(seq),
+               #{title},
+               #{content},
+               #{writer},
+               now()
+        )
+    </insert>
 </mapper>

@@ -9,4 +9,5 @@ public interface BoardService {
     public Board getData(int seq);
     public int setData(Board board);
     public int deleteData(int seq);
+    public void addData(Board board);
 }

@@ -9,6 +9,7 @@
         <td>{{item.date}}</td>
       </tr>
     </table>
+    <router-link to="/board/write">새글작성</router-link>
   </div>
 </template>
 

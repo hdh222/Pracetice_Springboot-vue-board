@@ -41,4 +41,9 @@ public class BoardController {
 
         return boardService.deleteData(seq);
     }
+
+    @PostMapping("/board/write")
+    public void addData(@RequestBody Board board){
+        boardService.addData(board);
+    }
 }
