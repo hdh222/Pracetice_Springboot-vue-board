@@ -1,5 +1,7 @@
 <template>
-<h1>하이하이</h1>
+  <div class="container">
+    <p class="h1">Vue.js Practice</p>
+  </div>
 </template>
 
 <script>

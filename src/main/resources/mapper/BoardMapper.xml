@@ -37,7 +37,7 @@
                   title,
                   content,
                   writer,
-                  board_date
+                  regdate
             )
         VALUES(
                nextval(seq),
