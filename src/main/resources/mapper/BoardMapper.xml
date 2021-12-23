@@ -1,11 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.repository.BoardRepository">
-    <select id="getBoard" resultType="Board">
+    <select id="getBoard" resultType="Board" parameterType="com.example.demo.util.Paging">
+        /*SELECT
+            *
+        FROM
+            board*/
         SELECT
             *
         FROM
-            board
+            (SELECT
+                result1.*,
+
+                @ROWNUM:=@ROWNUM+1 AS rnum
+            FROM
+                (SELECT
+                    *
+                FROM
+                    board
+                ORDER BY
+                    regdate desc
+                )result1
+            WHERE
+                (SELECT @ROWNUM:=0)=0
+            )B
+        WHERE
+            (B.rnum BETWEEN #{startRowNum} AND #{endRowNum})
     </select>
     <select id="getData" resultType="Board" parameterType="java.lang.Integer">
         SELECT
@@ -47,4 +67,10 @@
                now()
         )
     </insert>
+    <select id="getCount" resultType="java.lang.Integer">
+        SELECT
+            count(*)
+        FROM
+            board
+    </select>
 </mapper>

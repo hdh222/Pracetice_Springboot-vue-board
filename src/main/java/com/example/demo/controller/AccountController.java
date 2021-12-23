@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.vo.Account;
+import com.example.demo.entity.Account;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

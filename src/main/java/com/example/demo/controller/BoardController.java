@@ -1,13 +1,12 @@
 package com.example.demo.controller;
 
+import com.example.demo.entity.Board;
 import com.example.demo.service.BoardService;
-import com.example.demo.vo.Board;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -18,9 +17,10 @@ public class BoardController {
     private BoardService boardService;
 
     @GetMapping("/board")
-    public List<Board> getBoard(){
-        return boardService.getBoard();
+    public Map<String, Object> getBoard(HttpServletRequest req){
+        return boardService.getBoard(req);
     }
+
     @GetMapping("/board/detail/{seq}")
     public Map<String, Object> getData(@PathVariable(value="seq") int seq){
 
@@ -28,6 +28,7 @@ public class BoardController {
         map.put("data", boardService.getData(seq));
         return map;
     }
+
     @PutMapping("/board/update/{seq}")
     public int update(@PathVariable(value="seq")int seq, @RequestBody Board board){
 
